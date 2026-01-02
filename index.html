@@ -2,111 +2,101 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>XL SATU - Promo Januari</title>
+<title>XL SATU - Paket Promo Awal Januari</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
+</head>
+<body class="bg-gray-100 text-gray-800">
 <style>
 @media(max-width:768px){
-  section{padding:3rem 1.25rem!important}
-  h1{font-size:2.5rem!important}
-}
-*{
-  -webkit-tap-highlight-color: transparent;
+section{padding:3rem 1.25rem!important}
+h1{font-size:2.5rem!important}
 }
 </style>
-</head>
 
-<body class="bg-gray-100 text-gray-800">
-
-<!-- HERO -->
 <section class="bg-gradient-to-r from-[#0047AB] to-[#003A8C] text-white py-20 px-6 text-center">
 <h1 class="text-5xl font-extrabold mb-4">XL SATU</h1>
-<div class="inline-block bg-red-500 px-4 py-1 rounded-full text-sm mb-4">🔥 PROMO TERBATAS</div>
-<p class="text-2xl font-semibold">PAKET PROMO AWAL JANUARI</p>
-<p class="mt-4">Area: <strong>Bandung</strong></p>
+<div class="inline-block bg-red-500 text-white px-4 py-1 rounded-full text-sm mb-4">🔥 PROMO TERBATAS</div>
+<p class="text-2xl mb-2 font-semibold">PAKET PROMO AWAL JANUARI</p>
+<p class="text-lg">Internet Cepat & Stabil untuk Rumah dan Bisnis</p>
+<p class="mt-4">Area Layanan: <strong>Bandung Kota & Kabupaten</strong></p>
+<a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20dengan%20Paket%20Promo%20Awal%20Januari%20untuk%20wilayah%20Bandung.%20Mohon%20info%20pemasangan." class="inline-block mt-8 bg-white text-indigo-700 font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition">Daftar Sekarang</a>
+<div id="countdown" class="mt-6 text-lg font-semibold"></div>
+<script>
+const endDate = new Date(); endDate.setDate(endDate.getDate()+3);
+const cd = document.getElementById('countdown');
+setInterval(()=>{const d=endDate-new Date();if(d<=0){cd.innerText='Promo berakhir!';return;}const h=Math.floor(d/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);cd.innerText=`⏳ Promo berakhir dalam ${h}j ${m}m ${s}d`;},1000);
+</script>
 </section>
 
-<!-- PAKET -->
 <section class="py-16 px-6 max-w-6xl mx-auto">
+<script>
+const paketData={"50":{"desc":"Cocok untuk rumah kecil, streaming & belajar online","price":"Rp. 229.000"},"100":{"desc":"Super stabil untuk gaming & usaha kecil","price":"Rp. 279.000"},"150":{"desc":"Performa maksimal untuk kantor & bisnis","price":"Rp. 299.000"}};
+function showDetail(p){const d=paketData[p];document.getElementById('detailTitle').innerText=p+" Mbps";document.getElementById('detailDesc').innerText=d.desc;document.getElementById('detailPrice').innerText=d.price;document.getElementById('detailBtn').href=`https://wa.me/6282112052457?text=Saya%20mau%20pesan%20paket%20${p}%20Mbps`;document.getElementById('detailBox').style.display='flex';}
+function closeDetail(){document.getElementById('detailBox').style.display='none';}
+</script>
 <h2 class="text-3xl font-bold text-center mb-10">Pilihan Paket Internet</h2>
-
 <div class="grid md:grid-cols-3 gap-8">
-
-<button onclick="showDetail('50')"
-class="w-full bg-white rounded-3xl shadow-xl p-8 text-center transition transform active:scale-95">
+<div onclick="showDetail('50')" class="bg-white rounded-3xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl hover:bg-indigo-100 cursor-pointer">
 <h3 class="text-2xl font-bold">50 Mbps</h3>
 <p class="text-3xl font-extrabold my-4">Rp. 229.000</p>
 <p>/bulan</p>
-</button>
-
-<button onclick="showDetail('100')"
-class="w-full bg-white rounded-3xl shadow-xl p-8 text-center border-4 border-indigo-500 relative transition transform active:scale-95">
-<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 px-3 py-1 rounded-full text-xs font-bold">
-⭐ PALING LARIS
 </div>
+<div onclick="showDetail('100')" class="bg-white rounded-3xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl hover:bg-indigo-100 border-4 border-indigo-500 relative cursor-pointer">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-3 py-1 rounded-full text-xs font-bold">⭐ PALING LARIS</div>
 <h3 class="text-2xl font-bold">100 Mbps</h3>
 <p class="text-3xl font-extrabold my-4">Rp. 279.000</p>
 <p>/bulan</p>
-</button>
-
-<button onclick="showDetail('150')"
-class="w-full bg-white rounded-3xl shadow-xl p-8 text-center transition transform active:scale-95">
+<p class="mt-3 text-sm text-indigo-600">Paling Favorit</p>
+</div>
+<div onclick="showDetail('150')" class="bg-white rounded-3xl shadow-xl p-8 text-center transition transform hover:scale-105 hover:shadow-2xl hover:bg-indigo-100 cursor-pointer">
 <h3 class="text-2xl font-bold">150 Mbps</h3>
 <p class="text-3xl font-extrabold my-4">Rp. 299.000</p>
 <p>/bulan</p>
-</button>
-
+</div>
 </div>
 </section>
 
-<!-- DETAIL POPUP -->
-<div id="detailBox"
-class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[9999] px-4">
-<div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative">
-<button onclick="closeDetail()" class="absolute top-3 right-4 text-xl">✖</button>
+<section class="bg-white py-16 px-6">
+<h2 class="text-3xl font-bold text-center mb-10">Kenapa Pilih XL SATU?</h2>
+<div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 text-lg">
+<div>⚡ Kecepatan Stabil 24 Jam</div>
+<div>🎮 Cocok untuk Gaming & Streaming</div>
+<div>🏢 Ideal untuk Usaha & Kantor</div>
+<div>📶 Unlimited Tanpa FUP</div>
+<div>🛠️ Instalasi Cepat & Rapi</div>
+<div>☎️ Customer Service 24 Jam</div>
+</div>
+</section>
+
+<div class="fixed top-0 left-0 w-full bg-indigo-600 text-white text-center py-2 z-40 md:hidden">🔥 Promo Januari — <a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20promo" class="underline font-bold">Chat Sekarang</a></div>
+<section class="bg-[#0047AB] text-white py-16 text-center">
+<h2 class="text-3xl font-bold mb-6">Siap Upgrade Internet Kamu?</h2>
+<p class="mb-8">Hubungi kami sekarang dan nikmati koneksi tanpa hambatan.</p>
+<a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20dengan%20Paket%20Promo%20Awal%20Januari%20untuk%20wilayah%20Bandung.%20Mohon%20info%20pemasangan." class="bg-white text-indigo-700 font-bold py-4 px-10 rounded-full shadow-lg hover:scale-105 transition">Amankan Slot Promo Sekarang</a>
+<a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20promo" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full shadow-lg z-50">Chat WA</a>
+</section>
+
+<div id="popup" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50" onclick="closePopup()">
+  <div class="bg-white rounded-3xl p-8 max-w-sm text-center shadow-2xl relative" onclick="event.stopPropagation()">
+    <button onclick="closePopup()" class="absolute top-3 right-4 text-xl">✖</button>
+    <h3 class="text-2xl font-bold mb-2">🔥 Promo Awal Januari</h3>
+    <p class="mb-4">Diskon & pemasangan cepat untuk wilayah Bandung!</p>
+    <a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20dengan%20Paket%20Promo%20Awal%20Januari%20untuk%20wilayah%20Bandung.%20Mohon%20info%20pemasangan." class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold">Chat Sekarang</a>
+  </div>
+</div>
+
+<script>
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
+<div id="detailBox" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+<div class="bg-white rounded-3xl p-8 max-w-sm text-center relative">
+<button onclick="closeDetail()" class="absolute top-3 right-4">✖</button>
 <h3 id="detailTitle" class="text-2xl font-bold mb-2"></h3>
 <p id="detailDesc" class="mb-3"></p>
 <p id="detailPrice" class="text-xl font-bold mb-5"></p>
-<a id="detailBtn"
-class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-bold">
-Beli Sekarang
-</a>
-</div>
-</div>
-
-<!-- CHAT WA PC -->
-<a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU"
-class="fixed bottom-4 right-4 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl z-[9999] hidden md:flex items-center gap-2">
-💬 Chat WA
-</a>
-
-<!-- CHAT WA MOBILE -->
-<a href="https://wa.me/6282112052457?text=Halo%20Admin%20XL%20SATU"
-class="fixed bottom-0 left-0 w-full bg-green-500 text-white py-4 text-center font-bold z-[9999] md:hidden">
-💬 Chat via WhatsApp
-</a>
-
-<script>
-const paketData = {
-  "50": {desc:"Cocok untuk rumah kecil & belajar online", price:"Rp. 229.000"},
-  "100": {desc:"Stabil untuk gaming & usaha kecil", price:"Rp. 279.000"},
-  "150": {desc:"Performa maksimal untuk bisnis", price:"Rp. 299.000"}
-};
-
-function showDetail(p){
-  const d = paketData[p];
-  document.getElementById('detailTitle').innerText = p + " Mbps";
-  document.getElementById('detailDesc').innerText = d.desc;
-  document.getElementById('detailPrice').innerText = d.price;
-  document.getElementById('detailBtn').href =
-    `https://wa.me/6282112052457?text=Saya%20mau%20pesan%20paket%20${p}%20Mbps`;
-  document.getElementById('detailBox').style.display = 'flex';
-}
-
-function closeDetail(){
-  document.getElementById('detailBox').style.display = 'none';
-}
-</script>
-
+<a id="detailBtn" class="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold">Beli Sekarang</a>
+</div></div>
 </body>
 </html>
